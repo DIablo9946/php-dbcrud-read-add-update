@@ -34,7 +34,6 @@
       };
 
 
-  $bevande[] = $res;
 
   echo json_encode($bevande);
   $conn -> close();

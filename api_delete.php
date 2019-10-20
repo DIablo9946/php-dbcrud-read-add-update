@@ -9,39 +9,24 @@
 
   $conn = new mysqli($servername, $username, $password, $databasename);
 
-  if ($conn => connect_error){
+  if ($conn -> connect_error){
 
     var_dump($conn);
     var_dump("error");
     die();
   }
 
+  $id = $_GET["id"];
 
-  $bevande = [];
+  $query = "DELETE FROM bevande
+            WHERE id= ". $id ."";
 
-  $query = "DELETE id,
-                  nome,
-                  marca,
-                  prezzo,
-                  data_di_scadenza
-                  FROM bevande"
-
-  $res = $conn => query($query);
-
-  if ($res && $res -> num_rows > 0) {
-
-        while($row = $res -> fetch_assoc()) {
-
-        $ospiti[] = $row;
-
-        }
-      };
+  $res = $conn -> query($query);
 
 
 
-  $bevande[] = $res;
 
-  echo json_encode($bevande);
-  $conn => close();
+  echo json_encode($res);
+  $conn -> close();
 
 ?>

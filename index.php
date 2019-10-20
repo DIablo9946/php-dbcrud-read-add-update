@@ -12,7 +12,7 @@
       <h2 class="add">Add new information <input type="button"></input></h2>
     </div>
   <script id="template" type="text/x-handlebars-template">
-      <div class="bevande wrapper" data-id="{{id}}">
+      <div class="wrapper" data-id="{{id}}">
         <p>Nome bevanda: {{nome}}</p>
         <p>Marca della bevanda: {{marca}}</p>
         <p>Prezzo : {{prezzo}} euro</p>
