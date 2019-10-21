@@ -26,15 +26,20 @@
   $query = "
     INSERT INTO bevande (nome, marca, prezzo, data_di_scadenza)
     VALUES
-      (" . $nome . ", " . $marca . ", " . $prezzo . "," . $scadenza . ")
+      ('" . $nome . "', '" . $marca . "', '" . $prezzo . "', '"  . $scadenza . "')
     ";
 
   $res = $conn -> query($query);
 
 
-
+  // echo $query;
+  // die();
 
   echo json_encode($res);
   $conn -> close();
 
 ?>
+
+<!--
+-> richiama una funzione o una proprieta di un oggetto
+=> assegna un valore alla chiave -->

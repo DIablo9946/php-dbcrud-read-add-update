@@ -19,7 +19,7 @@
         <p>Data di scadenza: {{data_di_scadenza}}</p>
         <button class="del">X</button>
         <h4 class="update">Update</h4>
-      <div>
+      </div>
   </script>
   <script type="text/javascript" src="action.js"></script>
   </body>

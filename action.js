@@ -3,13 +3,16 @@ function init(){
   getData();
   $(document).on("click", ".wrapper .del", deleteData);
   $(document).on("click", "#container .add", addData);
+  $(document).on("click", ".wrapper .update", updateData);
 };
+
+var deleteElment = ".wrapper .del"
 
 $(document).ready(init);
 
 function getData(){
 
-  $(".wrapper").html("");
+  $(".wrapper").remove();
 
   $.ajax({
     url : "api.php",
@@ -92,6 +95,37 @@ function addData(){
     },
     success : function(data){
       console.log(data);
+      getData();
+    },
+    error : function(data){
+
+    }
+  });
+};
+
+
+function updateData(){
+
+  var id = getElementId($(this));
+  var nome = prompt("Inserisci il nuovo nome della bevanda");
+  var marca = prompt("Inserisci la nuova marca della bevanda");
+  var prezzo = prompt("Inserisci il nuovo prezzo della bevanda");
+  var data_di_scadenza = prompt("Inserisci la data della scadenza");
+
+  console.log(id);
+
+  $.ajax({
+    url : "api_update.php",
+    method : "GET",
+    data : {
+      id : id,
+      nome : nome,
+      marca : marca,
+      prezzo : prezzo,
+      data_di_scadenza: data_di_scadenza
+
+    },
+    success : function(data){
       getData();
     },
     error : function(data){
